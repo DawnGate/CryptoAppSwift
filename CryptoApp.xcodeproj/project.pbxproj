@@ -20,6 +20,7 @@
 		3B7AAE2328A7EC9A0043CF5F /* CoinLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AAE2228A7EC9A0043CF5F /* CoinLogoView.swift */; };
 		3B7AAE2628A95DFF0043CF5F /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AAE2428A95DFF0043CF5F /* PortfolioContainer.xcdatamodeld */; };
 		3B7AAE2828A95E610043CF5F /* PortfolioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AAE2728A95E610043CF5F /* PortfolioService.swift */; };
+		3B7AAE2A28AAC8DD0043CF5F /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AAE2928AAC8DD0043CF5F /* HapticManager.swift */; };
 		3BBACE3128A78B1300C6BE05 /* PortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBACE3028A78B1300C6BE05 /* PortfolioView.swift */; };
 		3BBACE3328A79F8600C6BE05 /* XmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBACE3228A79F8600C6BE05 /* XmarkButton.swift */; };
 		3BF33C12289C055A0062642B /* CoinImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF33C11289C055A0062642B /* CoinImageView.swift */; };
@@ -54,6 +55,7 @@
 		3B7AAE2228A7EC9A0043CF5F /* CoinLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinLogoView.swift; sourceTree = "<group>"; };
 		3B7AAE2528A95DFF0043CF5F /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
 		3B7AAE2728A95E610043CF5F /* PortfolioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioService.swift; sourceTree = "<group>"; };
+		3B7AAE2928AAC8DD0043CF5F /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		3BBACE3028A78B1300C6BE05 /* PortfolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioView.swift; sourceTree = "<group>"; };
 		3BBACE3228A79F8600C6BE05 /* XmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmarkButton.swift; sourceTree = "<group>"; };
 		3BF33C11289C055A0062642B /* CoinImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageView.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				3B51318C289ABFB900F65BFF /* NetworkingManager.swift */,
 				3B70BCBE28A1712A008D6C6D /* LocalFileManager.swift */,
+				3B7AAE2928AAC8DD0043CF5F /* HapticManager.swift */,
 			);
 			path = Ultilities;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				3B0145BE28A54A7B00503A3B /* HomeStasView.swift in Sources */,
 				3B70BCC328A193D8008D6C6D /* UIApplication.swift in Sources */,
 				3BF76DC5287F0FB90091226C /* HomeView.swift in Sources */,
+				3B7AAE2A28AAC8DD0043CF5F /* HapticManager.swift in Sources */,
 				3BF76DBB287DF2A00091226C /* Color.swift in Sources */,
 				3B70BCC128A18790008D6C6D /* SearchBarView.swift in Sources */,
 				3B51318D289ABFB900F65BFF /* NetworkingManager.swift in Sources */,
