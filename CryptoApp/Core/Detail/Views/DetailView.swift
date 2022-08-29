@@ -25,7 +25,7 @@ struct DetailView: View {
     
     @StateObject var vm: DetailModelView
     private let columns: [GridItem] = [GridItem(.flexible()),
-        GridItem(.flexible())]
+                                       GridItem(.flexible())]
     
     private let spacing: CGFloat = 30
     
@@ -36,22 +36,34 @@ struct DetailView: View {
     
     var body: some View {
         ScrollView{
-            VStack(spacing: 20) {
-                Text("")
-                    .frame(height: 150)
-                
-                overviewTitle
-                overviewGrid
-                
-                Divider()
-                
-                additionalTitle
-                additionalGrid
-                
+            VStack {
+                ChartView(coin: vm.coin)
+                    .padding(.vertical)
+                VStack(spacing: 20) {
+                    overviewTitle
+                    overviewGrid
+                    
+                    Divider()
+                    
+                    additionalTitle
+                    additionalGrid
+                    
+                }
+                .padding()
             }
-            .padding()
         }
         .navigationTitle(vm.coin.name)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                HStack{
+                    Text(vm.coin.symbol.uppercased())
+                        .font(.headline)
+                        .foregroundColor(Color.theme.secondaryText)
+                    CoinImageView(coin: vm.coin)
+                        .frame(width: 25, height: 25)
+                }
+            }
+        }
     }
 }
 
@@ -60,6 +72,7 @@ struct DetailView_Previews: PreviewProvider {
         NavigationView{
             DetailView(coin: dev.coin)
         }
+        .preferredColorScheme(.dark)
     }
     
     
