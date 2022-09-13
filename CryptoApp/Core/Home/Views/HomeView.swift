@@ -40,8 +40,15 @@ struct HomeView: View {
                 }
                 
                 if showPortfolio {
-                    portfolioCoinsList
-                        .transition(.move(edge: .trailing))
+                    ZStack(alignment: .top) {
+                        if vm.portfolioCoins.isEmpty &&
+                            vm.searchText.isEmpty {
+                            showMessageWhenPorfolioIsEmpty
+                        }else{
+                            portfolioCoinsList
+                        }
+                    }
+                    .transition(.move(edge: .trailing))
                 }
                 
                 Spacer(minLength: 0)
@@ -64,7 +71,7 @@ struct HomeView_Previews: PreviewProvider {
             HomeView()
                 .navigationBarHidden(true)
         }
-        .preferredColorScheme(.light)
+        .preferredColorScheme(.dark)
         .environmentObject(dev.homeVm)
     }
 }
@@ -105,25 +112,38 @@ extension HomeView {
     private var allCoinsList: some View {
         List{
             ForEach(vm.allCoins){ coin in
-                 CoinRowView(coin: coin, showHoldingsColumn: false)
-            .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
-            .onTapGesture {
-                segue(coin: coin)
-            }}
-        }
-        .listStyle(PlainListStyle())
+                CoinRowView(coin: coin, showHoldingsColumn: false)
+                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                    .onTapGesture {
+                        segue(coin: coin)
+                    }
+                    .listRowBackground(Color.theme.background)
+                }
+            }
+            .listStyle(PlainListStyle())
     }
     
     private var portfolioCoinsList: some View {
         List{
             ForEach(vm.portfolioCoins){ coin in
                 CoinRowView(coin: coin, showHoldingsColumn: true)
-            .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
-            .onTapGesture {
-                segue(coin: coin)
-            }}
+                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                    .onTapGesture {
+                        segue(coin: coin)
+                    }
+                    .listRowBackground(Color.theme.background)
+            }
         }
         .listStyle(PlainListStyle())
+    }
+    
+    private var showMessageWhenPorfolioIsEmpty: some View {
+        Text("You haven't add any coins to your portfolio yet. Click the + button to get started")
+            .font(.callout)
+            .foregroundColor(Color.theme.accent)
+            .fontWeight(.medium)
+            .multilineTextAlignment(.center)
+            .padding(50)
     }
     
     private func segue(coin: CoinModel) {

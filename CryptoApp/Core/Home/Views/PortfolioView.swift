@@ -30,6 +30,7 @@ struct PortfolioView: View {
                     }
                 }
             }
+            .background(Color.theme.background.ignoresSafeArea())
             .navigationTitle("Edit profile")
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading){

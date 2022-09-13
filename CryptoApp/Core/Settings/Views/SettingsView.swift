@@ -17,11 +17,19 @@ struct SettingsView: View {
     let personalURL = URL(string: "https://www.nicksarno.com/")!
     var body: some View {
         NavigationView {
-            List {
-                swiftThinkingSection
-                coinGeckoSection
-                developerSection
-                applicationsSection
+            ZStack{
+                Color.theme.background.opacity(0.5).ignoresSafeArea()
+                
+                List {
+                    swiftThinkingSection
+                        .listRowBackground(Color.theme.background.opacity(0.5))
+                    coinGeckoSection
+                        .listRowBackground(Color.theme.background.opacity(0.5))
+                    developerSection
+                        .listRowBackground(Color.theme.background.opacity(0.5))
+                    applicationsSection
+                        .listRowBackground(Color.theme.background.opacity(0.5))
+                }
             }
             .font(.headline)
             .accentColor(.blue)
@@ -39,6 +47,7 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
+            .preferredColorScheme(.dark)
     }
 }
 

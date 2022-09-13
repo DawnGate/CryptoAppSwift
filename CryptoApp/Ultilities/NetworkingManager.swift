@@ -24,9 +24,11 @@ class NetworkingManager {
     
     static func download(url: URL) -> AnyPublisher<Data, Error>{
         return URLSession.shared.dataTaskPublisher(for: url)
-            .subscribe(on: DispatchQueue.global(qos: .default))
+//            .subscribe(on: DispatchQueue.global(qos: .default))
             .tryMap({ try handleURLResponse(output: $0, url: url)})
-            .receive(on: DispatchQueue.main)
+            .retry(3)
+//            .receive(on: DispatchQueue.main) if we using it, the main thread handle all decode, it will make app slowly, so we change
+        // the decode handle for background thread
             .eraseToAnyPublisher()
     }
     
